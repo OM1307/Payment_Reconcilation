@@ -20,7 +20,7 @@ function App() {
     setIsGenerating(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8000/api/generate');
+      const response = await fetch('https://payment-reconcilation.onrender.com/api/generate');
       if (!response.ok) throw new Error('Failed to generate data');
       const data = await response.json();
       
@@ -64,7 +64,7 @@ function App() {
     formData.append('bank_file', bankFile);
 
     try {
-      const response = await fetch('http://localhost:8000/api/reconcile', {
+      const response = await fetch('https://payment-reconcilation.onrender.com/api/reconcile', {
         method: 'POST',
         body: formData,
       });
